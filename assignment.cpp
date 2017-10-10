@@ -7,20 +7,20 @@
 using namespace std;
 // Constants, Structs, Classes
 class Counter{
-private: unsigned int count; //only positive numbers
+private: unsigned int count;         //only positive numbers
 public:
-    Counter():count(0){
-        //THis will initialize int count to 0 on startup
+    Counter():count(0){             //constructor with no arguments
+                                    //THis will initialize int count to 0 on startup
     };
+    Counter(int c):count(c)         //This is a constructor with one argument
+    {};
     unsigned int get_count()
     {
         return count;
     }
     Counter operator ++(){         //Increment prefix //The operator keyword is used to overload the operator
-        ++count;                //Operator is a KEYWORD
-        Counter temp;
-        temp.count = count;
-        return temp;
+        ++count;                  //Operator is a KEYWORD
+        return Counter(count);
 
     }
 
