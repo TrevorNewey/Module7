@@ -21,7 +21,9 @@ public:
     Counter operator ++(){         //Increment prefix //The operator keyword is used to overload the operator
         ++count;                  //Operator is a KEYWORD
         return Counter(count);
-
+    }
+    Counter operator ++ (int){    //increment postfix... THe int is in there so that it will accept it being postfix
+        return Counter(count++);
     }
 
 };
@@ -29,14 +31,17 @@ public:
 
 // Main Program Program
 int main(void) {
-    Counter c1, c2, c3;
+    Counter c1, c2, c3,c4;
     ++c1;
     ++c2;
     cout << "c1 = "<<c1.get_count()<<endl;
     cout << "c2 = "<<c2.get_count()<<endl;
     c3 = ++c1;
+    cout << "c1 = "<<c1.get_count()<<endl;
     cout << "c3 = "<<c3.get_count()<<endl;
-
+    c4 = c1++;
+    cout << "c1 = "<<c1.get_count()<<endl;
+    cout << "c4 = "<<c4.get_count()<<endl;
     return 0;
 }
 
